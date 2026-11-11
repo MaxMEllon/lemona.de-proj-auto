@@ -1579,14 +1579,14 @@
         side: Thru,
         quantize: Beat,
         transition: (
-            kind: Glitch,
+            kind: Zoom,
             beats: 1.0,
         ),
         autopilot: (
             enabled: true,
             mode: RandomOf,
             cells: (true, true, true, true, true, true, true, true),
-            every: 4,
+            every: 2,
             on: Bars,
         ),
     ), (
@@ -1598,7 +1598,7 @@
         side: Thru,
         quantize: Beat,
         transition: (
-            kind: Glitch,
+            kind: Crossfade,
             beats: 1.0,
         ),
         autopilot: (
@@ -1606,10 +1606,10 @@
             mode: RandomOf,
             cells: (false, true, true, true, true, true, true, true),
             every: 1,
-            on: Bars,
+            on: Trigger(1),
         ),
     ), (
-        active: 2,
+        active: 1,
         opacity: 1.0,
         mode: 4,
         bypass: false,
@@ -1624,7 +1624,7 @@
             enabled: true,
             mode: RandomOf,
             cells: (true, true, true, true, true, true, true, true),
-            every: 2,
+            every: 4,
             on: Beats,
         ),
     ), (
@@ -1958,8 +1958,8 @@
         curve: Cut,
     ),
     editing: (
-        layer: 2,
-        slot: 2,
+        layer: 1,
+        slot: 3,
     ),
     palette: ((0.007843136, 0.023529429, 0.09019608), (0.04313725, 0.14509808, 0.27058825), (0.07450981, 0.19215669, 0.36078432), (0.11764707, 0.37254888, 0.5411765), (0.3058824, 0.65882355, 0.87058824), (0.5647059, 0.8784313, 0.9372549), (0.7921569, 0.9411765, 0.972549), (1.0, 1.0, 1.0)),
     triggers: (
@@ -1974,10 +1974,10 @@
         auto: false,
     ),
     audio: (
-        gain_db: 16.8,
+        gain_db: 7.5,
         floor_db: -50.0,
         device: Some("Loopback (MOTU M Series)"),
-        hit_thresholds: (0.2518974, 0.16790874, 0.08961229, 0.06811406),
+        hit_thresholds: (0.33558065, 0.2708579, 0.23310298, 0.08747683),
         hit_decay: 0.25,
     ),
     post_fx: (
@@ -2036,93 +2036,4 @@
     render_scale: 1.0,
     fps_limit: 0,
     preview_fps: 15,
-    scenes: (Some((
-        name: "",
-        layers: ((
-            active: 1,
-            opacity: 1.0,
-            mode: 0,
-            bypass: false,
-            solo: false,
-            side: Thru,
-        ), (
-            active: 1,
-            opacity: 1.0,
-            mode: 4,
-            bypass: false,
-            solo: false,
-            side: Thru,
-        ), (
-            active: 5,
-            opacity: 1.0,
-            mode: 4,
-            bypass: false,
-            solo: false,
-            side: Thru,
-        ), (
-            active: 2,
-            opacity: 0.46,
-            mode: 5,
-            bypass: false,
-            solo: false,
-            side: Thru,
-        )),
-        crossfader: (
-            position: 0.505,
-            curve: Cut,
-        ),
-        master_level: 1.0,
-        post_fx: (
-            fade: (RgbDelay, RgbSplit, Bloom, Blur, Mirror, Kaleido, Edge, Distortion),
-            fade_level: (0.0, 0.0, 0.022314453, 0.0, 0.0, 0.0, 0.0, 0.0),
-            one_shot: (Strobe, Invert, RgbSplit, Glitch, Shake, Edge, Pixelate, Dust),
-            layers: (true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true),
-        ),
-        palette: ((0.007843139, 0.04705881, 0.105882354), (0.027450979, 0.14901958, 0.23137255), (0.043137267, 0.30980384, 0.36078432), (0.07843137, 0.5882353, 0.4980394), (0.24705882, 0.81960785, 0.47843143), (0.60784316, 0.9490196, 0.54509807), (0.77254903, 0.54509807, 1.0), (0.9490196, 0.9019608, 1.0)),
-        glide_beats: 0.0,
-    )), Some((
-        name: "",
-        layers: ((
-            active: 1,
-            opacity: 1.0,
-            mode: 0,
-            bypass: false,
-            solo: false,
-            side: Thru,
-        ), (
-            active: 1,
-            opacity: 1.0,
-            mode: 4,
-            bypass: false,
-            solo: false,
-            side: Thru,
-        ), (
-            active: 5,
-            opacity: 1.0,
-            mode: 4,
-            bypass: false,
-            solo: false,
-            side: Thru,
-        ), (
-            active: 2,
-            opacity: 0.46,
-            mode: 5,
-            bypass: false,
-            solo: false,
-            side: Thru,
-        )),
-        crossfader: (
-            position: 0.505,
-            curve: Cut,
-        ),
-        master_level: 1.0,
-        post_fx: (
-            fade: (RgbDelay, RgbSplit, Bloom, Blur, Mirror, Kaleido, Edge, Distortion),
-            fade_level: (0.0, 0.0, 0.022314453, 0.0, 0.0, 0.0, 0.0, 0.0),
-            one_shot: (Strobe, Invert, RgbSplit, Glitch, Shake, Edge, Pixelate, Dust),
-            layers: (true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true),
-        ),
-        palette: ((0.007843139, 0.04705881, 0.105882354), (0.027450979, 0.14901958, 0.23137255), (0.043137267, 0.30980384, 0.36078432), (0.07843137, 0.5882353, 0.4980394), (0.24705882, 0.81960785, 0.47843143), (0.60784316, 0.9490196, 0.54509807), (0.77254903, 0.54509807, 1.0), (0.9490196, 0.9019608, 1.0)),
-        glide_beats: 0.0,
-    )), None, None, None, None, None, None),
 )
