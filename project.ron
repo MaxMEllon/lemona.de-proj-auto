@@ -375,7 +375,7 @@
                     layer: 1,
                     slot: 2,
                 )),
-                position: (188.27344, 187.29297),
+                position: (115.27344, 225.29297),
                 preview: true,
                 kind: Glsl("mono_pulse-2.frag"),
                 params: [
@@ -1362,6 +1362,28 @@
                 ],
                 bindings: [],
             ),
+            (
+                id: 88,
+                group: Cell((
+                    layer: 2,
+                    slot: 4,
+                )),
+                position: (120.0, 120.0),
+                preview: true,
+                kind: Builtin("Video"),
+                params: [
+                    ("file", String("D:\\vjitem\\bg\\cyber\\Cube_VJF_013.mp4")),
+                    ("play", Bool(true)),
+                    ("loop", Bool(true)),
+                    ("speed", Float(1.0)),
+                    ("reverse", Bool(false)),
+                    ("auto sync", Bool(false)),
+                    ("bpm", Float(120.0)),
+                    ("fit", Int(0)),
+                    ("hardware", Bool(true)),
+                ],
+                bindings: [],
+            ),
         ],
         connections: [
             (
@@ -1568,10 +1590,16 @@
                 to: 69,
                 to_port: "in",
             ),
+            (
+                from: 88,
+                from_port: "out",
+                to: 16,
+                to_port: "in",
+            ),
         ],
     ),
     layers: ((
-        active: 1,
+        active: 2,
         opacity: 0.92,
         mode: 0,
         bypass: false,
@@ -1609,7 +1637,7 @@
             on: Trigger(1),
         ),
     ), (
-        active: 1,
+        active: 4,
         opacity: 1.0,
         mode: 4,
         bypass: false,
@@ -1959,13 +1987,13 @@
     ),
     editing: (
         layer: 1,
-        slot: 3,
+        slot: 2,
     ),
-    palette: ((0.007843136, 0.023529429, 0.09019608), (0.04313725, 0.14509808, 0.27058825), (0.07450981, 0.19215669, 0.36078432), (0.11764707, 0.37254888, 0.5411765), (0.3058824, 0.65882355, 0.87058824), (0.5647059, 0.8784313, 0.9372549), (0.7921569, 0.9411765, 0.972549), (1.0, 1.0, 1.0)),
+    palette: ((0.04313725, 0.11372541, 0.31764707), (0.22745107, 0.109803915, 0.44313726), (0.48235297, 0.17647058, 0.54509807), (0.84313726, 0.15294118, 0.48235315), (1.0, 0.2941177, 0.36078423), (1.0, 0.49411762, 0.37254906), (0.99607843, 0.70588225, 0.48235294), (1.0, 0.88627446, 0.6039216)),
     triggers: (
         decay: (0.5, 0.5, 0.5, 0.5),
         sequencer: (
-            steps: ((true, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false), (false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false), (true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false), (true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false)),
+            steps: ((true, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false), (false, false, false, false, true, false, false, false, false, false, false, false, true, false, false, false), (false, false, true, false, false, false, true, false, false, false, true, false, false, false, true, true), (true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false)),
             enabled: true,
         ),
     ),
@@ -1974,10 +2002,10 @@
         auto: false,
     ),
     audio: (
-        gain_db: 7.5,
+        gain_db: 6.0,
         floor_db: -50.0,
         device: Some("Loopback (MOTU M Series)"),
-        hit_thresholds: (0.33558065, 0.2708579, 0.23310298, 0.08747683),
+        hit_thresholds: (0.2708579, 0.24928367, 0.23310298, 0.08747683),
         hit_decay: 0.25,
     ),
     post_fx: (
@@ -1994,7 +2022,7 @@
             fx: Glitch,
             level: 0.0,
         ), (
-            fx: Shake,
+            fx: Hue,
             level: 0.0,
         ), (
             fx: Edge,
