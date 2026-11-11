@@ -6,11 +6,11 @@ writes this file, `CLAUDE.md` and `docs/` when the project is opened or
 created, so don't edit them; write shaders and send commands as described
 below.
 
-- This show's own shaders: `/Users/melocilde/Movies/sense/shaders` — every GLSL node's file, and
+- This show's own shaders: `D:\vj-proj\lemona.de-proj-auto\shaders` — every GLSL node's file, and
   a built-in node's own copy once its shader was edited (in the app's SHADER
   panel). One file per node, used by that node only; `state.json` gives each
   node's `shader`. Editing a file changes only its node.
-- Shared shaders: `/Users/melocilde/work/vj-app/shaders` (built-in `generators/`, `effects/`, …,
+- Shared shaders: `D:\lemona.de\shaders` (built-in `generators/`, `effects/`, …,
   shared code in `util/`, a library of GLSL starting points in `user/`). They
   are used by every node of their kind: don't edit them for one node.
 - Live state: `agent/state.json`
@@ -55,7 +55,7 @@ rewritten within a second of any change.
   (`{bpm:.0}`, `{a:03}`). **Clock** outputs the current time as text
   (`format` is strftime, default `%H:%M:%S`; `time zone` an IANA name, empty =
   the system's) plus `hour` / `minute` / `second`.
-- A **GLSL** node runs its own file in `/Users/melocilde/Movies/sense/shaders`. Its two inputs
+- A **GLSL** node runs its own file in `D:\vj-proj\lemona.de-proj-auto\shaders`. Its two inputs
   `in0` and `in1` are `u_tex0` and `u_tex1`. Its params are whatever the
   file's `NodeParams` block declares (see below).
 - A **Base** groups nodes (like a TouchDesigner Base COMP). Nodes inside it
@@ -109,7 +109,7 @@ rewritten within a second of any change.
 1. Read `agent/state.json` to see the cells, nodes, params and errors.
 2. Create a node with `add_glsl` (optionally with `"source"` and `"out": true`
    to connect it to the cell's Out), or edit a node's file in
-   `/Users/melocilde/Movies/sense/shaders`.
+   `D:\vj-proj\lemona.de-proj-auto\shaders`.
 3. Saving the file hot-reloads it. Params are re-read from `NodeParams` on
    save; values of params that keep their name and type are kept.
 4. Check the node in `state.json`: `pipeline` goes `building` → `ready` or
@@ -152,9 +152,9 @@ void main() {
   spec is a free description.
 - A block that doesn't parse gives the node four 0..1 knobs `a b c d`, and
   the error shows in `state.json` (`error`, `NodeParams line N: …`).
-- Includes resolve against `/Users/melocilde/work/vj-app/shaders`. Don't edit `util/` or the
+- Includes resolve against `D:\lemona.de\shaders`. Don't edit `util/` or the
   built-in folders: they are replaced when the app updates. The files in
-  `/Users/melocilde/Movies/sense/shaders` are yours.
+  `D:\vj-proj\lemona.de-proj-auto\shaders` are yours.
 - Sizes given in pixels should be multiplied by `u_scale` (render scale).
 - Unconnected texture inputs are transparent black (alpha 0). Connected ones
   are always opaque.
@@ -460,7 +460,7 @@ Use these names with `add_node`. `in` / `out` are texture ports unless marked
 
 These are the effects of the 16 post FX slots (applied to the master output,
 or to chosen layers before the mix — set in PERFORMANCE), each with
-one param `float amount`, under `/Users/melocilde/work/vj-app/shaders/post/`:
+one param `float amount`, under `D:\lemona.de\shaders/post/`:
 
 - **strobe** `post/strobe.frag` — white flashes on 16th notes
 - **invert** `post/invert.frag` — negative image
@@ -494,14 +494,14 @@ name first and then renaming it. Files are processed in name order, deleted,
 and answered in `agent/results/<name>.json`:
 `{"ok": true, ...}` or `{"ok": false, "error": "..."}`.
 
-From a shell, `/Users/melocilde/work/vj-app/target/debug/lemonade send <cmd> key=value …` does this for one command
+From a shell, `D:\lemona.de\target\debug\lemonade.exe send <cmd> key=value …` does this for one command
 and prints the result (values are JSON when they parse, else text; or pass a
 whole JSON object; `send state` prints `state.json`; exit status 1 when the
 command failed, 2 when the app isn't running):
 
 ```sh
-/Users/melocilde/work/vj-app/target/debug/lemonade send set_param node=12 param=speed value=2
-/Users/melocilde/work/vj-app/target/debug/lemonade send snapshot 'cell={"layer": 1, "slot": 1}'
+D:\lemona.de\target\debug\lemonade.exe send set_param node=12 param=speed value=2
+D:\lemona.de\target\debug\lemonade.exe send snapshot 'cell={"layer": 1, "slot": 1}'
 ```
 
 Node ids are the `id`s in `state.json`. They are valid while the app runs; a
@@ -509,7 +509,7 @@ reopened show gets new ids. `cell` defaults to the edited cell.
 
 | `cmd` | Fields | Result |
 |---|---|---|
-| `add_glsl` | `name?` (file stem in `/Users/melocilde/Movies/sense/shaders`), `source?` (GLSL; else a starter template), `cell?`, `position?` `[x, y]`, `out?` (connect to the cell's Out) | `node`, `shader`, `file` |
+| `add_glsl` | `name?` (file stem in `D:\vj-proj\lemona.de-proj-auto\shaders`), `source?` (GLSL; else a starter template), `cell?`, `position?` `[x, y]`, `out?` (connect to the cell's Out) | `node`, `shader`, `file` |
 | `add_node` | `kind` (built-in name), `cell?`, `position?`, `parent?` (a Base's or Particle's id: add inside it; required for In / Out and particle nodes) | `node` |
 | `remove_node` | `node` (not an Out, nor a Particle's own `in` / `out`) | |
 | `reset_particles` | `node` (a Particle) — every particle starts over at its pixel | |
