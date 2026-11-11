@@ -992,7 +992,7 @@
                     layer: 2,
                     slot: 2,
                 )),
-                position: (-302.8086, -25.164063),
+                position: (-469.8086, -51.164063),
                 preview: true,
                 kind: Glsl("nx_scope-2.frag"),
                 params: [
@@ -1344,6 +1344,24 @@
                 ],
                 bindings: [],
             ),
+            (
+                id: 87,
+                group: Cell((
+                    layer: 2,
+                    slot: 2,
+                )),
+                position: (-267.0, -37.0),
+                preview: true,
+                kind: Builtin("Color"),
+                params: [
+                    ("brightness", Float(0.0)),
+                    ("contrast", Float(1.0)),
+                    ("saturation", Float(0.0)),
+                    ("hue", Float(0.0)),
+                    ("invert", Float(0.0)),
+                ],
+                bindings: [],
+            ),
         ],
         connections: [
             (
@@ -1422,12 +1440,6 @@
                 from: 67,
                 from_port: "out",
                 to: 14,
-                to_port: "in",
-            ),
-            (
-                from: 68,
-                from_port: "out",
-                to: 69,
                 to_port: "in",
             ),
             (
@@ -1544,10 +1556,22 @@
                 to: 28,
                 to_port: "in",
             ),
+            (
+                from: 68,
+                from_port: "out",
+                to: 87,
+                to_port: "in",
+            ),
+            (
+                from: 87,
+                from_port: "out",
+                to: 69,
+                to_port: "in",
+            ),
         ],
     ),
     layers: ((
-        active: 0,
+        active: 1,
         opacity: 0.92,
         mode: 0,
         bypass: false,
@@ -1566,7 +1590,7 @@
             on: Bars,
         ),
     ), (
-        active: 2,
+        active: 1,
         opacity: 0.77,
         mode: 4,
         bypass: false,
@@ -1585,7 +1609,7 @@
             on: Bars,
         ),
     ), (
-        active: 3,
+        active: 2,
         opacity: 1.0,
         mode: 4,
         bypass: false,
@@ -1597,7 +1621,7 @@
             beats: 1.0,
         ),
         autopilot: (
-            enabled: false,
+            enabled: true,
             mode: RandomOf,
             cells: (true, true, true, true, true, true, true, true),
             every: 2,
@@ -1934,8 +1958,8 @@
         curve: Cut,
     ),
     editing: (
-        layer: 0,
-        slot: 3,
+        layer: 2,
+        slot: 2,
     ),
     palette: ((0.007843136, 0.023529429, 0.09019608), (0.04313725, 0.14509808, 0.27058825), (0.07450981, 0.19215669, 0.36078432), (0.11764707, 0.37254888, 0.5411765), (0.3058824, 0.65882355, 0.87058824), (0.5647059, 0.8784313, 0.9372549), (0.7921569, 0.9411765, 0.972549), (1.0, 1.0, 1.0)),
     triggers: (
